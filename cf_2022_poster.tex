@@ -1,0 +1,224 @@
+\documentclass[a0paper, twocolumn, landscape]{baposter}
+
+\usepackage{wrapfig}
+\usepackage{lmodern}
+\usepackage{multicol}
+\usepackage{lipsum,graphicx}
+\usepackage[utf8]{inputenc} %unicode support
+\usepackage[T1]{fontenc}
+
+\selectcolormodel{cmyk}
+
+\graphicspath{{figures/}} % Directory in which figures are stored
+
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{0pt}%
+\setlength{\parskip}{1pt}%
+\setlength{\parsep}{0pt}%
+}
+
+\newenvironment{boenumerate}
+  {\begin{enumerate}\renewcommand\labelenumi{\textbf\theenumi.}}
+  {\end{enumerate}}
+
+
+\begin{document}
+
+\definecolor{Mycolor1}{HTML}{00FFFF}
+\definecolor{Mycolor2}{HTML}{008080}
+
+\begin{poster}
+{
+grid=false,
+headerborder=open, % Adds a border around the header of content boxes
+colspacing=1em, % Column spacing
+bgColorOne=white, % Background color for the gradient on the left side of the poster
+bgColorTwo=white, % Background color for the gradient on the right side of the poster
+borderColor=Mycolor1, % Border color
+headerColorOne=Mycolor2, % Background color for the header in the content boxes (left side)
+headerColorTwo=Mycolor2, % Background color for the header in the content boxes (right side)
+headerFontColor=white, % Text color for the header text in the content boxes
+boxColorOne=white, % Background color of the content boxes
+textborder=rounded, %rectangle, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+eyecatcher=false, % Set to false for ignoring the left logo in the title and move the title left
+headerheight=0.11\textheight, % Height of the header
+headershape=rounded, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+headershade=plain,
+headerfont=\Large\textsf, % Large, bold and sans serif font in the headers of content boxes
+%textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
+linewidth=2pt % Width of the border lines around content boxes
+}
+{}
+%
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR NAME
+%----------------------------------------------------------------------------------------
+%
+{
+\textsf %Sans Serif
+{
+\vspace{2.5em}\\
+\\
+{Exploratory Analysis of United States Health in 2022}
+}
+} % Poster title
+% {\vspace{0.2em} Add Author Name, Add another author name\\ 
+% {\small \vspace{0.7em} Department of Computing, TU Dublin, Tallaght, Dublin, Ireland}} 
+{\sf\vspace{0.2em}\\
+UHG County Health Findings 2022\\
+\small { Trevor Smith, Eduardo Palacios, Mitchell Martin  }% Author names
+\vspace{0.1em}\\
+\small{ CS 4330-010 Intro To Data Science
+\vspace{0.2em}\\
+mmartin46@angelo.edu, epalacios5@angelo.edu, tsmith102@angelo.edu  % Author email addresses
+\vspace{1.9em}\\
+\\
+\\
+}
+}
+{\includegraphics[width=0.2\linewidth]{bothlogos.png}} 
+
+% this states the box starts at column 0 (edge of page), row 0 (top of page) for a span of 3 (columns wide)
+\headerbox{Introduction}{name=introduction, column=0,row=0, span=4}{
+\\\textbf{Objective:} Analyze data set given by United Health Group(UHG) to determine
+the impact on race, social and demographic factors on health,
+survival, and mortality.
+\\\textbf{Data-sets:}
+Ranked Data Measure, Outcomes \& Factors Sub-rankings
+
+
+\vspace{0.3cm} %remove this, only added for spacing
+
+
+\begin{wrapfigure}[8]{r}{0.4\textwidth}
+\end{wrapfigure}
+
+\vspace{0.3cm}
+
+}
+
+
+
+% this states the box starts at column 0 (edge of page), directly below 
+
+% this states the box starts at column 0 (edge of page), directly below the box labelled subtopic1 for a span of 1 (column wide)
+
+\headerbox{Results}{name=subtopic2,column=2, below=introduction,span=2}{
+
+\begin{multicols}{2}
+\textbf{Question 1}\\
+From the heatmap it can be stated for each\\ racial group, the highest correlations of premature death is...\\                 
+\textbf{Asian:} Highschool Completion Rate\\ 
+\textbf{Black:} Income Inequality\\
+\textbf{White:} Highschool Completion Rate\\
+\textbf{Hispanic:} Highschool Completion Rate\\
+
+% Insert question 2
+\textbf{Question 2}\\
+
+\textbf{Question 3}\\
+The "correlation" legend represents the counties where the \\
+Percentage of the\\
+- Driving Deaths with Alcohol Involvement	\\
+- Lone Drive to Work
+Conclusion:\\
+Counties within the northwestern region \\tend to have similar rate of \\alcohol related deaths and lone drivers.\\
+(e.g. Alaska, North Dakota, Wyoming)\\
+
+\textbf{Question 4}\\
+Yes, our findings show us that individuals \\that tend to have more poor mental\\ health days within the week tend to\\ also be more Physically inactive, Obese,\\ and have potential years of life lost\\
+
+% Insert Question 5
+\textbf{Question 5}\\
+\textbf{Texas}: Kenedy\\
+\textbf{Ohio}: Holmes\\
+\textbf{Indiana}: LaGrange\\
+
+\vspace{.2cm} %remove this, only added for spacing
+\columnbreak
+
+\includegraphics[width=.5\linewidth]{Q_1.png}\\
+Figure (1)\\
+\includegraphics[width=.5\linewidth]{Q__2.png}
+\includegraphics[width=.45\linewidth]{Q_3.png}\\
+Figure (2)\hspace{25mm}Figure (3)\\
+\includegraphics[width=.5\linewidth]{Q_4.png} 
+\includegraphics[width=.45\linewidth]{Q_5.png}\\
+Figure (4)\hspace{25mm}Figure (5)\\
+\includegraphics[width=.9\linewidth]{both.png}\\
+Figure (6)\\
+\includegraphics[width=.45\linewidth]{Q_71.png}
+\includegraphics[width=.45\linewidth]{Q_72.png}\\
+Figure (7)\\
+
+\end{multicols}
+
+
+
+
+}
+
+\headerbox{Predictive Analysis}{name=pred, column=1, below=subtopic2, span=2}{
+\textbf{Question 6} (see Figure (6))\\
+Using linear regression, we are able predict
+that\\
+- Increased alcohol deaths slowly decreases
+  the health and social rankings.\\
+- Increased drug overdoses remedially increases
+  health and social rankings.\\
+- Blue Line - Social Ranking and Health Behaviors comparison\\
+- Purple Line - Social Ranking and Health Behaviors (\% of Drug-Overdoses considered)\\
+- Red Line - Social Ranking and Health Behaviors comparison (\% of Alcohol Deaths considered)\\
+\begin{equation}
+\boldmath{
+Y_i = \beta_0 + \beta_1 X_i}
+\end{equation}
+\textbf{Question 7} (see Figure (7))\\
+The \% of teen births with all races shows a higher relationship of an increase of poor mental health days among Indian, Asian, and Black Americans, while ethnicities such as White and Hispanic Americans tend to have a lower amount of poor mental health days that happened to have children as teenagers.
+
+The \% of children that people that have children as teenagers and have children in poverty are usually were mainly minorities, while White Americans tend to have the lowest amount of children in poverty.\\
+\vspace{.1cm}
+}
+
+\headerbox{UHG Questions}{name=subtopic3,column=1,below=introduction,span=1}{
+\vspace{0.1cm}
+\textbf{Project Objectives}\\\\
+- Do income inequality, unemployment and high school completion\\
+rates affect the number of premature deaths of certain racial groups\\
+at the county level?\\
+- Which 5 States have the counties with lowest mental health days, and do\\
+excessive drinking ratings lead to larger amounts of people having poor mental \\
+health days?\\
+- Which counties and states have shown to have the highest average\\
+number of alcohol related deaths reported within the health rankings\\
+and does this correlate with driving alone to work?\\
+- Do high physical inactivity rates found within the rankings tend to\\
+correlate with high adult obesity rates?\\
+- What are the top 20 counties with the lowest high school completion\\
+rates grouped by each state and does this correlate to the number of
+teen births?\\
+\vspace{.05cm}
+}
+
+
+
+\headerbox{Project Objectives}{name=obj, column=0, below=introduction, span=1}{
+Analyze data set given by United Health Group(UHG) to\\ determine the impact on race, social and demographic factors\\ on health, survival, and mortality.\\
+
+Since the UHG County Findings Dataset was high in storage,
+we need to utilize different forms of application software in order to manipulate and visualize the data in order to minimize the time needed to work on the questions for this dataset.
+
+\includegraphics[width=.99\linewidth]{eg.png}\\
+}
+
+\headerbox{Citations}{name=citation,column=0,below=obj,span=1}{
+\\
+\textbf{County Health Ranking Datasets}
+“How Healthy Is Your County?: County Health Rankings.” County Health Rankings &amp; Roadmaps, https://www.countyhealthrankings.org/. 
+
+\vspace{.1cm}
+}
+
+\end{poster}
+
+\end{document}
