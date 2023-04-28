@@ -1,0 +1,431 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    	
+% ANCS'19 Conference Name %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chead{\rmfamily\fontsize{9}{30}\selectfont 
+%2019 ACM/IEEE Symposium on Architectures for Networking and Communications %Systems (ANCS)}
+\renewcommand{\headrulewidth}{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ANCS'19 Copyright Notice %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: use the copyright text that matches your requirements.
+%
+% 1. For papers in which all authors are employed by the US government, the copyright notice is: 
+%\cfoot{\rmfamily\fontsize{9}{0}\selectfont U.S. Government work not protected by U.S. copyright}
+%
+% 2. For papers in which all authors are employed by a Crown government (UK, Canada, and Australia), the copyright notice is: 
+%\cfoot{\rmfamily\fontsize{9}{0}\selectfont 978-1-7281-4387-3/19/\$31.00~\copyright~2019 Crown}
+%
+% 3. For papers in which all authors are employed by the European Union, the copyright notice is:
+%\cfoot{\rmfamily\fontsize{9}{0}\selectfont 978-1-7281-4387-3/19/\$31.00~\copyright~2019 European Union}
+%
+% 4. For all other papers the copyright notice is:
+\cfoot{\rmfamily\fontsize{9}{0}\selectfont 978-1-7281-4387-3/19/\$31.00~\copyright~2019 IEEE}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{2022 County Health Findings\\
+
+\thanks{Identify applicable funding agency here. If none, delete this.}
+}
+
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Eduardo Palacios}
+\IEEEauthorblockA{\textit{Angelo State University} \\
+\textit{Intro. to Data Science (CS-4330-010)}\\
+City, Country \\
+epalasios5@angelo.edu}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Mitchell Martin}
+\IEEEauthorblockA{\textit{Intro. to Data Science (CS-4330-010)} \\
+\textit{Angelo State University}\\
+McKinney, United States \\
+mmartin46@angelo.edu}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Trevor Smith}
+\IEEEauthorblockA{\textit{Intro. to Data Science (CS-4330-010)} \\
+\textit{Angelo State University}\\
+City, Country \\
+tsmith102@angelo.edu}
+\and
+}
+
+
+\maketitle
+\thispagestyle{fancy}
+
+\section{Abstract}
+The objective of the research project is to
+analyze data set given by United Health Group(UHG)[2] in order to develop different predictions that have impacted the country based on race, social and demographic factors.
+Through the semester, the students in the Introduction To Data Science course have been working with the County Health Rankings \& Roadmaps 2022 dataset[1]. The dataset, a grouping of information, given involves statistics grouped by ethnicity which consists of various physical factors that have an effect on our environment. Moreover, the task for the students is to attempt to find correlated factors within the dataset that affect the environment to a higher extent. As a result, our group has decided to make use of a computer language called Python in order to use various visualization tools (graphs, charts, geocharts) for our analysis of the dataset. Furthermore, the visualization tools which we have used for our dataset are Pandas[3], Matplotlib[10], Altair[8], Shap[6], and Seaborn[9]. Moreover, we used the tools within sections in the dataset such as “Alcohol Related Deaths”, “YPLL (Years of Potential Life Lost)”, “High-School Dropout Rates”, and we will eventually use machine learning tools, to see if we can find future predictions within our dataset if certain trends continue.\\
+
+Keywords: dataset, data-visualization, Pandas, Altair, Seaborn\\
+
+\section{Dataset(s)}
+
+\subsection{Data Cleanup}
+The County Findings Dataset was high in storage, so it was necessary to utilize different forms of application software in order to manipulate and visualize the data in order to minimize the time needed to work on the questions for this dataset (e.g. Pandas, Matplotlib, Altair). Moreover, the team eventually moved to the data cleanup process as many of the columns received from the dataset were "unnamed". [5] The algorithm utilized
+sequentially iterates through each column and if the column shows as "unnamed", it will be
+changed to a blank column (see Figure A).[5]\\
+\includegraphics[scale=0.3]{cleaner.png}
+\begin{center}
+\footnotesize{Figure A}    
+\end{center}
+
+Continuing the discussion regarding the data cleanup process, there were plenty of rows that were had no values, which concluded to more problems. Moreover, plenty of rows within the given dataset had values that were left as missing for numerous
+countries. As a result, initializing all the values seemed like an optimal option but
+led to a numerous amount of results be initialized to zero, so unfortunately when predictive modeling because a strong topic in our research, we had to completely
+remove many of the columns in order to get a more accurate predictive model for our dataset.
+
+The team used the Ranked, Sub-Ranking, and the Additional Measure statistics within the dataset, as these were the only areas that had
+any social, physical, and demographic factors that the data visualization tools could make accurate predictions with.
+
+\section{Results}
+
+\subsection{Predictive Model}\\
+As we consider what happens in both physical and social en-
+vironments by splitting our dataset by 80 / 20. We trained
+the model and found that in both poor physical and social
+environments, they both
+lead to a higher amount of poor physical health days. (See Figure A.1)\\
+
+
+\includegraphics[scale=0.3]{model.png}
+\begin{center}
+\footnotesize{Figure A.1}    
+\end{center}
+
+
+\subsection{Social \& Economic Findings}
+
+The \% of teen births with all races shows a higher relationship of an increase of poor mental health days among Indian,
+Asian, and Black Americans, while ethnicities such as White
+and Hispanic Americans tend to have a lower amount of
+poor mental health days that happened to have children as
+teenagers (See Figure B).\\
+
+\includegraphics[scale=0.3]{fig2.png}
+\begin{center}
+\footnotesize{Figure B}    
+\end{center}
+
+The \% of children that people that have children as teenagers
+and have children in poverty are usually were mainly minorities, while White Americans tend to have the lowest amount
+of children in poverty (See Figure C).\\
+\includegraphics[scale=0.3]{fig3.png}
+\begin{center}
+\footnotesize{Figure C}    
+\end{center}
+
+
+Using a heat-map as an way of visualizing our dataset,
+we tend to find that\\
+- Quality of Life has a relationship with health behaviours.\\
+- Quality of Life also has a relationship with Social & Economic factors.\\
+- Social & Economic Factors also tend to have a strong effect on health behaviors.\\
+(See Figure D)\\
+
+\includegraphics[scale=0.4]{download (13).png}
+\begin{center}
+\footnotesize{Figure D}    
+\end{center}
+
+
+\subsection{Project Objectives}
+\textbf{1. Do income inequality, unemployment and high school
+completion
+rates affect the number of premature deaths of certain racial
+groups?}\\
+
+From the heatmap it can be stated for each
+racial group, the highest correlations of premature death is...\\
+Asian: Highschool Completion Rate\\
+Black: Income Inequality\\
+White: Highschool Completion Rate\\
+Hispanic: Highschool Completion Rate (See Figure 1)\\
+
+\includegraphics[scale=0.2]{Q1.png}
+\begin{center}
+\footnotesize{Figure 1}    
+\end{center}
+
+\textbf{2. Which 5 States have the counties with lowest mental
+health days, and do
+excessive drinking ratings lead to larger amounts of people
+having poor mental
+health days?}\\
+
+The visualization shows that as poor
+mental health lowers, we tend to see
+the amount of excessive drinking increases\\
+\\
+\textbf{States:}\\
+West Virginia,
+Arkansas,
+Alabama,
+Tennessee,
+Louisiana\\
+
+The graph above shows that as poor mental health lowers, the amount
+of excessive Drinking increases.\\
+Escaping poor mental health by drowning oneself in alcohol? (See Figure 2)\\
+
+
+\includegraphics[scale=0.45]{Q2.png}
+\begin{center}
+\footnotesize{Figure 2}    
+\end{center}
+
+\textbf{3. Which counties and states have shown to have the highest
+average
+number of alcohol related deaths reported within the health
+rankings
+and does this correlate with driving alone to work?}\\
+
+
+
+The "correlation" legend represents the counties where the 
+Percentage of the
+- Driving Deaths with Alcohol Involvement	
+- Lone Drive to Work
+
+are near idententical.\\
+Our findings show that there is a higher corrleation in the northwestern
+part of the United States (e.g. Alaska, North Dakota, Wyoming)
+than in other counties within the United States. (See Figure 3.A)\\
+
+\includegraphics[scale=0.45]{Q3.png}
+\begin{center}
+\footnotesize{Figure 3.A}    
+\end{center}
+
+\\Our findings also show that there is a correlation with alcohol related driving deaths with people that drive alone to work.
+The average is ranges between (8\% - 50\%) of people dying while drinking and driving with around (70\% - 90\%) of people driving alone.
+This county findings show us that while it isn't a suprise that many \\individuals drive alone to work, a suprisingly high number of counties have an unecessarily high amount of driving deaths.\\
+\\
+Could it be possible that this isolated driving tends to lead to unecessary driving deaths? (See Figure 3.B)\\
+
+
+\includegraphics[scale=0.45]{Q3_1.png}
+\begin{center}
+\footnotesize{Figure 3.B}    
+\end{center}
+
+
+Using the correlation formula, we found that 
+we receive a value of 0.5446131445201996.
+Which shows that there is a relationship between the two factors if the value
+is closer to 1 than 0.\\
+
+\begin{center}
+\large{
+$ Pearson's R = \frac{N\Sigma{XY}-(\Sigma{X}\Sigma{Y})}{\sqrt{ [N \Sigma{x^2}-(\Sigma{x})^2 ][N \Sigma{y^2}-(\Sigma{y})^2 }]} $
+}
+\end{center}\\\\
+
+\textbf{4. Do high physical inactivity rates found within the rankings tend to correlate with high adult obesity rates?}
+
+We find that Obesity and Physical Activity Rates tend to lead to
+a YPLL rate of 5,000 to 20,000.
+What does this data mean? \\
+Our findings show us that both Obesity and Physical Activity
+Rates tend to have a similar effect of shortening the length
+of American lives.
+Another noticeable factor is that individuals that tend to have more poor mental health days within the week tend to also be more
+
+\textbf{
+\\- Physically inactive
+\\- Obese
+\\- Potential years of life lost
+}\\
+(See Figure 4.A)\\
+
+\includegraphics[scale=0.45]{Q4.png}
+\begin{center}
+\footnotesize{Figure 4.A}
+\end{center}
+
+We can also compare the amount of poor mental health days for the population within the week with the amount of physical inactivity rates and also see that the coorelation tends to be similar to the obesity rates.\\
+(We can find most of the population has 20-40\% of obesity rates and 4-6 days within the week of poor mental health.)\\\\
+
+\includegraphics[scale=0.75]{Q4_1.png}
+\begin{center}
+\footnotesize{Figure 4.B}
+\end{center}
+
+We can infer from the county findings that high obesity rates
+can result from or to\\
+- More Poor Mental Health Days\\
+- Higher Inactivity Rates\\
+
+
+\textbf{5. What are the top 20 counties with the lowest high school completion rates grouped by each state and does this correlate to the number of teen births?}\\
+
+ Top 20 counties with the lowest high school completion rates, grouped by state:\\
+ Texas: Kenedy, Presidio, Hudspeth, Starr, Maverick, Gaines, Culberson, Frio, Garza, La Salle, Moore, Zapata, Brooks, Hidalgo\\
+ Ohio: Holmes\\
+ Indiana: LaGrange\\
+ Idaho: Clark\\
+ Mississippi: Issaquena\\
+ Kentucky: Clay\\
+ Georgia: Atkinson\\
+ \\Texas holds almost 3/4's of the lowest 20 Highschool completion States, at 14 out of 20
+ Possible reasoning could be its location next to the border?\\
+ The graph above shows that as the High School Completion rate drops, the Teen Birth rate
+ steadaly rises. There is a correlation of almost 70\%. (See Figure 5)\\
+
+ \includegraphics[scale=0.45]{Q5.png}
+\begin{center}
+\footnotesize{Figure 5}
+\end{center}
+
+
+\subsection{Linear Regression}
+
+A problem the group was having regarding predictive modeling was that
+the mean squared error, which shows how far off our predictive analysis is compared to the actual data, was usually high. We turned out to use a more efficient method of minimizing the mean squared error by utilizing the MinMaxScaler from the Sckit-learn library within Python.[6] Using this method allowed us the minimize the mean squared error as well as being provided a more accurate looking data visualization for our predictive models.\\
+
+As stated in the introduction, one of the problems that the group confronted was
+the missing data in the given dataset. Each time we had to develop a predictive model
+we always had missing data. Our solution, while not the most accurate, was to remove
+all the rows that did not have a value.\\
+
+\textbf{# Are there demographic and social factors that are predictors of drug
+overdose, alcohol-related driving incidents?}\\
+
+Using linear regression, we are able predict that with the percentage of alcohol deaths being factored within each\\ county, we can predict that a higher percentage of alcohol deaths will gradually decrease the social ranking of a county as well as their general health behavior.
+\begin{equation}
+\boldmath{
+Y_i = \beta_0 + \beta_1 X_i}
+\end{equation}
+
+
+
+With the percentage of drug-overdoses considered there surprisingly turns out to be a remedial increase of both the social ranking and the health behavior within each county.\\
+
+Blue Line - Social Ranking and Health Behaviors comparison\\
+
+ \includegraphics[scale=0.45]{Q6.png}
+\begin{center}
+\footnotesize{Figure 6.A}
+\end{center}
+
+Red Line - Social Ranking and Health Behaviors comparison \textbf{(\% of Alcohol Deaths considered)}\\
+
+ \includegraphics[scale=0.45]{Q6_1.png}
+\begin{center}
+\footnotesize{Figure 6.B}
+\end{center}
+
+Purple Line - Social Ranking and Health Behaviors \textbf{(\% of Drug-Overdoses considered)}\\
+
+In general, if we look at a visualization of all races,
+we tend to find that the relationship between Poor Physical Health Days and the
+of Preventable Hospital rates tend to be similar, with whites and blacks
+having a slight edge in poor physical health days.\\
+
+ \includegraphics[scale=0.45]{download (17).png}
+\begin{center}
+\footnotesize{Figure 6.C}
+\end{center}
+
+\section{Additional Research}
+
+\subsection{Findings}
+
+\textbf{An increase in college students is predicted to cause an increase of Calmedia Cases.}\\
+
+The data visualization shows us that as the # of Chlamydia cases increases,
+the premature death rate also tends to increase.
+Using Kernel Ridge Regression, the algorithm shows us that if we consider the more people take courses in college, it predicts that we may have an increase of chlamydia cases and death rates the more college students we have. (See Figure Z.1)\\
+
+\begin{equation}
+\boldmath{
+    \hat{\beta} = (X^T X + \lambda I)^-1 X^T y}
+\end{equation}
+
+ \includegraphics[scale=0.45]{download (10).png}
+\begin{center}
+\footnotesize{Figure Z.1}
+\end{center}
+
+
+
+Using another predictive analysis option,
+Random Forest Regression, 
+shows us that individuals that had higher math scores usually are expected
+to have a longer life expectancy than those
+who have lower math scores.
+
+\begin{center}
+ \includegraphics[scale=0.3]{Capture482.png}\\
+ \footnotesize{Random Forest Regression}
+\end{center}
+
+ \includegraphics[scale=0.45]{download (15).png}
+\begin{center}
+\footnotesize{Figure Z.2}
+\end{center}
+
+\section{Conclusion}
+Our analysis revealed that we were able to find different situations
+in health and social factors based on different ethnicites. As in our 
+findings for premature death, we found that Asian, White, and Hispanic
+Americans will tend to have premature deaths more frequently if they haven't
+completed high school, and for Black Americans we found that Income Inequality
+turned out to be a more significant factor. Moreover, utilizing different 
+visualizations of our data, were able to find how factors such as 
+Quality of Life tend to closely depend on how high a county has ranked within 
+Social \& Economic Behaviours and Health Behaviors, as an example.
+Additionally, using the University of Wisconsin's model for the specific dataset[1],
+we were able to use a variety of factors such as educational, clinical, physical,
+and social factors in order to come up with more accurate results for our
+health outcomes, allowing our findings to gradually improve as the progress on working on the dataset continued. The group as a result, began using 
+different machine learning approaches in order to predict different
+outcomes for certain factors of our dataset. (e.g. Linear Regression, Kernel Ridge Regression, Random Forest Regression, etc.) using a prediction tool known as SK Learn[6]. Using these machine learning approaches we were able to find how different educational and social factors may have an impact on health behaviours within
+different counties.
+
+
+\begin{thebibliography}{00}
+\bibitem{b1} County Health Ranking Datasets
+“How Healthy Is Your County?: County Health Rankings.”, University of Wisconsin Population Health Institute,
+County Health Rankings amp; Roadmaps,
+https://www.countyhealthrankings.org/about-us
+
+\bibitem{b2} UHG - Project Partner of the EA
+Ranked Data File CSV Dimensions: ( 3192 rows, 249 columns )
+
+\bibitem{b3} Pandas
+McKinney, Wes. “Pandas.” Pandas, https://pandas.pydata.org/.
+
+\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
+
+\bibitem{b5} Rename unnamed multiindex columns in Pandas DataFrame. (2016, November 28). Stack Overflow. https://stackoverflow.com/questions/40839609/rename-unnamed-multiindex-columns-in-pandas-dataframe
+
+\bibitem{b6} Scikit-learn: Machine Learning in Python — Scikit-learn 1.2.2 Documentation. scikit-learn.org/stable.
+
+\bibitem{b7} Welcome to the SHAP Documentation — SHAP Latest Documentation. shap.readthedocs.io/en/latest/index.html.
+
+\bibitem{b8} altair.Chart — Vega-Altair 5.0.0dev Documentation. altair-viz.github.io/user_guide/generated/toplevel/altair.Chart.html.
+
+\bibitem{b9} Linear Regression With Marginal Distributions — Seaborn 0.12.2 Documentation. seaborn.pydata.org/examples/regression_marginals.html.
+
+\bibitem{b10} ---. matplotlib.org/stable/index.html.
+
+\bibitem{b11} GeeksforGeeks. “Random Forest Regression in Python.” GeeksforGeeks, Apr. 2023, www.geeksforgeeks.org/random-forest-regression-in-python/#.
+
+\end{thebibliography}
+\vspace{12pt}
+
+\end{document}
